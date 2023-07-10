@@ -11,6 +11,9 @@ def main():
 
     print('Choose an output option:')
     option = input('1 = Years + Months + Weeks + Days, 2 = Months + Weeks + Days, 3 = Weeks + Days, 4 = Days\n')
+    valid_options = {'1', '2', '3', '4'}
+    while option not in valid_options:
+        option = input('Please enter a valid output option. 1 = Years + Months + Weeks + Days, 2 = Months + Weeks + Days, 3 = Weeks + Days, 4 = Days\n')
     option = int(option)  # convert string to int
     time_diff = convert_time(option, date_1, date_2)
     formatted_time_diff = format_time(time_diff, option)
