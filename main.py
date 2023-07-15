@@ -2,6 +2,7 @@ import math
 
 
 def main():
+    # TODO: check for valid inputs
     date_1 = input('Enter the first date (MM/DD/YY): \n')
     date_1 = date_1.split('/')
     date_1 = [int(x) for x in date_1]  # convert string to int array
@@ -18,7 +19,6 @@ def main():
     time_diff = convert_time(option, date_1, date_2)
     formatted_time_diff = format_time(time_diff, option)
     print(*formatted_time_diff, sep=', ')
-    # optional: check for valid inputs
 
 
 def check_leap_year(year):
