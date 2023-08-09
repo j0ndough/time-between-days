@@ -4,11 +4,9 @@ import math
 def main():
     # TODO: check for valid inputs
     date_1 = input('Enter the first date (MM/DD/YY): \n')
-    date_1 = date_1.split('/')
-    date_1 = [int(x) for x in date_1]  # convert string to int array
+    date_1 = get_valid_date(date_1)
     date_2 = input('Enter the second date (MM/DD/YY): \n')
-    date_2 = date_2.split('/')
-    date_2 = [int(x) for x in date_2]  # convert string to int array
+    date_2 = get_valid_date(date_2)
 
     print('Choose an output option:')
     option = input('1 = Years + Months + Weeks + Days, 2 = Months + Weeks + Days, 3 = Weeks + Days, 4 = Days\n')
@@ -20,6 +18,25 @@ def main():
     formatted_time_diff = format_time(time_diff, option)
     print(*formatted_time_diff, sep=', ')
 
+
+def get_valid_date(date):
+    while True:
+        date = date.split('/')
+        if len(date) != 3 or try_int(date):
+            date = input('Please enter a valid date (MM/DD/YY): \n')
+        else:
+            return [int(x) for x in date]  # convert string to int array
+
+
+def try_int(arr):
+    for i in range(len(arr)):
+        try:
+            arr[i] = int(arr[i])
+            if arr[i] < 0:  # negative numbers
+                raise ValueError
+        except ValueError:
+            return True
+    return False
 
 def check_leap_year(year):
     if year < 0:

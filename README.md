@@ -10,9 +10,6 @@ Run `python main.py` in your CLI/terminal of choice or run main.py through your 
 Windows: In order to run this program via command line, [Python 3](https://www.python.org/downloads/) must be 
 installed and added to the system PATH.
 
-Note: There is no input validation (yet...) when entering dates, so there may be funky behavior if a non-integer 
-date is given.
-
 ## Goals:
 
 1. Re-familiarize myself with Python.
@@ -31,3 +28,8 @@ to find the difference in years and/or months between two dates.
 
 For leap year cases (aka years with 366 days), I consider 1/1 and 12/31 to still be the same year, even though 
 there are 365 days between the two dates.
+
+Edit 8/8/23: Added input validation when entering a date. It was more straightforward than I had expected. Part
+of my concern was me trying to find a function that checks if an entire array is an int array (i.e., valid date), 
+but that does not seem practical in Python. Instead, I opted to write my own function, looping through the input
+string and seeing if its elements are/can be converted to positive integers.
